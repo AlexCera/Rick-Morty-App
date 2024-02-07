@@ -9,7 +9,15 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getCharacters(params: any){
-    return this.http.get(env.api_base_url + env.character, {params});
+  getCharacters(params: any) {
+    return this.http.get(env.api_base_url + env.character, { params });
+  }
+
+  getCharacterById(characterId: string) {
+    return this.http.get(env.api_base_url + env.character + characterId);
+  }
+
+  getInfoByUrl(url: string) {
+    return this.http.get(url);
   }
 }
